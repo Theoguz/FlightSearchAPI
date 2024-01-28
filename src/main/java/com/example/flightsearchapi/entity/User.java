@@ -13,14 +13,7 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
-
-    //    @Email(message = "Email should be valid")
-    @Column(name = "email", unique = true, nullable = false, length = 45)
-    private String email;
-
-    @Column(name = "password", nullable = false, length = 64)
+    private Long Id;
+    private String userName;
     private String password;
-
 }

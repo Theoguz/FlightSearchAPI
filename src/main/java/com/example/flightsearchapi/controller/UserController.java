@@ -1,36 +1,26 @@
 package com.example.flightsearchapi.controller;
 
-import com.example.flightsearchapi.dto.UserDto;
 import com.example.flightsearchapi.entity.User;
 import com.example.flightsearchapi.service.UserService;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/user")
-
-
+@RequestMapping("api/v1/user")
 public class UserController {
 
-    private final UserService userService;  //@Autowired
-
+    private final UserService userService;
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @PostMapping("/add")
-    public UserDto addAccount(@RequestBody User user) {
-        return userService.save(user);
+    @PostMapping("/register")
+    public User registerUser(@RequestBody User user) {
+        userService.saveUser(user);
+        return user;
     }
 
-    @GetMapping("/all")
-    public List<UserDto> GetAllUsers() {
-        return userService.getAll();
-    }
 
-    @GetMapping("/{email}")
-    public UserDto findByEmail(@PathVariable String email) {
-        return userService.findByEmail(email);
-    }
 }
