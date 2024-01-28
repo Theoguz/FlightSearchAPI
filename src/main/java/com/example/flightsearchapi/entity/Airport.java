@@ -16,6 +16,12 @@ public class Airport {
     private Long id;
 
 
-    @Column(name = "name",unique = true)
+    @Column(name = "city",unique = true)
     private String city;
+
+
+
+
+
 }
+

@@ -1,22 +1,22 @@
 package com.example.flightsearchapi.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @Entity
-@NoArgsConstructor
+@Table(name = "users")
 @AllArgsConstructor
-@Table(name = "flight_user")
+@NoArgsConstructor
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String email;
-    private String password;
-    private String roles;
+    private Long id;
 
+    @Column(name = "email",unique = true,nullable = false)
+    private String email;
+
+    private String password;
 }

@@ -1,14 +1,14 @@
 package com.example.flightsearchapi.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
-
+import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
-
-    private String username;
+public class UserDto  implements Serializable {
+    private String email;
     private String password;
-
 }

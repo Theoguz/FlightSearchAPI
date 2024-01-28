@@ -42,4 +42,15 @@ public class AirportService {
         }
     }
 
+    public void changeAirport(Long id, Airport airport) {
+        Airport airport1 = airportRepository.findById(id).get();
+        airport1.setCity(airport.getCity());
+        airportRepository.save(airport1);
+        airportMapper.maptoAirportDto(airport1);
+    }
+
+
+
+
+
 }
